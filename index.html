@@ -98,7 +98,7 @@
         nav {
             background: #222;
             color: white;
-            padding: 18px 5%;
+            padding: 12px 5%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -106,7 +106,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 75px;
+            box-sizing: border-box;
             padding-right: 5%;
+        }
+
+        .text-logo {
+            font-size: 14px;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 400px;
         }
 
         /* 导航栏logo区域 */
@@ -138,7 +149,7 @@
 
         /* 横幅 */
         .banner {
-            margin-top: 70px;
+            margin-top: 75px;
             height: 550px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/1920/1080?travel');
             background-size: cover;
@@ -552,6 +563,20 @@
 
         // 初始默认显示中文
         switchLang('zh');
+
+        // 确保页面初始化时滚动到顶部
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+        
+        // 立即滚动到顶部（如果页面已缓存）
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                window.scrollTo(0, 0);
+            });
+        } else {
+            window.scrollTo(0, 0);
+        }
     </script>
 </body>
 </html>
